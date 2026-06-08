@@ -1,0 +1,116 @@
+.side-bar * {
+    font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+.side-bar {
+    display: flex;
+    font-weight: 600;
+    font-size: 18px;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    background-color: rgba(0, 0, 0,0.5);
+    height: 100vh;
+    width: 100%; /* Thêm chiều rộng cố định để sidebar không bị co rúm */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+}
+.nav-bar >div {
+        margin:10px 0;
+}
+.nav-bar{
+
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    width: 240px; /* Thêm chiều rộng cố định để sidebar không bị co rúm */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+}
+.side-bar >ul>li:hover {
+    border-left:2px solid white  !important;
+}
+/* XÓA DẤU CHẤM TRÒN VÀ PADDING CỦA THẺ UL */
+
+/* SỬA SELECTOR Ở ĐÂY: Chỉ áp dụng cho thẻ div và li NẰM TRONG .side-bar */
+.nav-bar > div{
+    color: lab(65.6464% 1.53497 -5.42429);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+.nav-bar > div>img{
+padding: 10px 20px;
+color: lab(65.6464% 1.53497 -5.42429);
+} 
+.nav-bar > div>svg{
+height: 30px;
+width: 30px;
+color: lab(65.6464% 1.53497 -5.42429);
+margin-right:20px;
+} 
+.nav-bar>ul> li {
+    color: lab(65.6464% 1.53497 -5.42429);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0,0.15);
+    /* justify-content: flex-start; Thay space-between bằng flex-start để chữ và icon dính sát nhau */
+    justify-content: flex-start; 
+    gap: 12px; /* Tạo khoảng cách vừa phải giữa icon và chữ */
+    padding: 12px 20px; /* Thêm khoảng đệm cho các dòng menu dễ bấm */
+    cursor: pointer;
+    border-left:5px solid rgb(0, 0, 0) ;
+    margin:2px 0;
+}
+
+.nav-bar>ul>.child> li{  
+    color: lab(65.6464% 1.53497 -5.42429);  display: flex;
+    align-items: center;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0,0.15);
+    /* justify-content: flex-start; Thay space-between bằng flex-start để chữ và icon dính sát nhau */
+    justify-content: flex-start; 
+    gap: 12px; /* Tạo khoảng cách vừa phải giữa icon và chữ */
+    padding: 12px 20px; /* Thêm khoảng đệm cho các dòng menu dễ bấm */
+    cursor: pointer;
+    margin: 2px;}
+    .nav-bar>ul>.child> li:hover{
+        border-left:2px solid white ;
+    }
+.nav-bar * {
+    transition: all 0.3s ease-in-out;
+}
+.nav-bar> ul> .child>:hover {
+    
+    color: lab(65.6464% 1.53497 -5.42429);
+    
+}
+.nav-bar span {
+    color: lab(65.6464% 1.53497 -5.42429);
+    text-align: left;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.drop-menu {
+    color: lab(65.6464% 1.53497 -5.42429);
+    display: flex;
+    flex-direction: column;
+}
+.child{
+margin-left:30px ;
+}
+.child >li {
+border: none;
+box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0) !important;
+}
+.nav-bar> ul>li:hover{
+    border-left:2px solid white ;
+}
+.child {
+    display: none;
+}

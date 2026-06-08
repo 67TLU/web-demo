@@ -1,0 +1,120 @@
+.nav-bar{
+    display: flex;
+    position: sticky;
+    max-height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 12px; 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    top:0;
+    left:0;
+    width: 100%;
+    height:70px ;
+    color: white;
+    z-index: 100;
+}
+.nav-bar svg {
+color: black; 
+}
+.menu {
+    display: flex;
+    gap: 30px;
+    
+}
+  .task{
+    display: none;
+  }
+.nav-bar img{
+    height: 40px;
+}
+.main-key {
+  position: relative;
+  font-weight: 500;
+  color: #000000;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: color 0.2s ease;
+   display: inline-flex;    /* Biến mục này thành flexbox dạng inline */
+  align-items: center;     /* Căn giữa chữ và icon theo chiều dọc */
+  gap: 6px;                /* Tạo khoảng cách nhỏ vừa phải giữa chữ và icon mũi tên */
+  
+}
+@keyframes ani{
+  0% { width: 0%;}
+  100% {width: 100%;}
+}
+.main-key:hover{
+  color: white;
+}
+.main-key:hover::before {
+  color: #ffffff;
+  content: "";
+  position: absolute;
+  top:90%;
+  width: 0%;
+  background-color: #ffffff;
+  height: 3px;
+  animation: ani 0.3s ease-in-out forwards;
+}
+.drop-menu {
+  display: none; 
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width:150%;
+  background-color: #ffffff;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  z-index: 10;
+}
+.main-key:hover .drop-menu {
+  display: block; 
+}
+
+.drop-menu li {
+  padding: 10px 20px;
+  color: #555555;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap; 
+  transition: background-color 0.2s;
+}
+.drop-menu li:hover {
+  background-color: #f3f4f6;
+  color: #6366f1;
+}
+.main-key svg {
+    flex-wrap: nowrap;
+}
+.content{
+    display: flex;
+    align-items: center;
+    gap:30px;
+    margin-right:40px ;
+}
+.nav-bar >img, .nav span {
+    margin: 0 40px ;
+}
+@media (max-width :900px ) {
+  .menu {
+    display: none;
+  }
+  .content {
+    gap:10px;
+    margin-right:20px ;
+  }
+  .nav-bar >img{
+    margin: 0 10px;
+  }
+  .task{
+    display: inline-block;
+  }
+}
