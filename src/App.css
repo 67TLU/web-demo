@@ -68,6 +68,16 @@
     padding: 32px 20px 24px;
     gap: 18px;
   }
+
+  @media (max-width: 768px) {
+    padding: 24px 16px 20px;
+    gap: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px 12px 16px;
+    gap: 12px;
+  }
 }
 
 #next-steps {
@@ -81,15 +91,34 @@
     @media (max-width: 1024px) {
       padding: 24px 20px;
     }
+
+    @media (max-width: 768px) {
+      padding: 20px 16px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 16px 12px;
+    }
   }
 
   .icon {
     margin-bottom: 16px;
     width: 22px;
     height: 22px;
+
+    @media (max-width: 480px) {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 12px;
+    }
   }
 
   @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
   }
@@ -99,6 +128,11 @@
   border-right: 1px solid var(--border);
 
   @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  @media (max-width: 768px) {
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
@@ -151,6 +185,38 @@
       box-sizing: border-box;
     }
   }
+
+  @media (max-width: 768px) {
+    margin-top: 16px;
+    gap: 6px;
+
+    li {
+      flex: 1 1 calc(50% - 6px);
+    }
+
+    a {
+      font-size: 14px;
+      padding: 5px 10px;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 12px;
+    gap: 4px;
+    flex-wrap: wrap;
+
+    li {
+      flex: 1 1 100%;
+    }
+
+    a {
+      font-size: 12px;
+      padding: 4px 8px;
+      width: 100%;
+    }
+  }
 }
 
 #spacer {
@@ -158,6 +224,14 @@
   border-top: 1px solid var(--border);
   @media (max-width: 1024px) {
     height: 48px;
+  }
+
+  @media (max-width: 768px) {
+    height: 32px;
+  }
+
+  @media (max-width: 480px) {
+    height: 24px;
   }
 }
 
@@ -180,5 +254,26 @@
   &::after {
     right: 0;
     border-right-color: var(--border);
+  }
+}
+
+/* Responsive Design - Mobile First */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1em;
   }
 }
