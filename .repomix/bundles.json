@@ -1,0 +1,15 @@
+{
+  "bundles": {
+    "xml.xml-247": {
+      "name": "xml.xml",
+      "created": "2026-06-09T12:40:02.594Z",
+      "lastUsed": "2026-06-09T12:40:02.594Z",
+      "tags": [],
+      "files": [
+        "src/css.css",
+        "src/js.js",
+        "src/html.html"
+      ]
+    }
+  }
+}

@@ -1,46 +1,36 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-import Config from './config/config'
-import Header from './components/layout/Header/Header.jsx'
-import SideBar from './components/layout/SideBar/SideBar'
-import Loading from './components/common/Loading/Loading'
-import Button from './components/common/Button/Button'
-import Search from './components/common/Search/Search'
-import Infor from './components/common/Infor/Infor'
-import Tree from './components/common/Tree/Tree'
-import ContractLinks from './components/common/ContractLinks/ContractLinks'
+import React, { useState } from 'react';
+import Header from './components/layout/Header/Header'; // Đường dẫn tới file Header của bạn
+import SideBar from './components/layout/SideBar/SideBar'; // Cập nhật đường dẫn thực tế
+
 function App() {
-  const [count, setCount] = useState(0)
-  useEffect(()=>{
-    document.title=Config.TITLE;
-  },[]);
+  // 1. Khởi tạo State quản lý đóng/mở sidebar
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // 2. Hàm lật trạng thái (Bấm nút task ở header thì chạy hàm này)
+  const toggleSidebar = () => {
+    setIsSidebarOpen(prev => !prev);
+  };
+
+  // 3. Hàm đóng hẳn sidebar (Bấm overlay hoặc nút X ở sidebar thì chạy hàm này)
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
   return (
-    <>
-    <Header></Header>
-    <SideBar></SideBar>
-    <Button className='button'>aksjdhiaóduiády</Button>
-    <Loading></Loading>
-    <Search placeholder="Search..." name='user' type='text'></Search>
-    <Infor>Infor</Infor>
-    <Tree></Tree>
-    <ContractLinks></ContractLinks>
-        <Button className='button'>aksjdhiaóduiády</Button>
-    <Loading></Loading>
-    <Search placeholder="Search..." name='user' type='text'></Search>
-    <Infor>Infor</Infor>
-    <Tree></Tree>
-    <ContractLinks></ContractLinks>
-        <Button className='button'>aksjdhiaóduiády</Button>
-    <Loading></Loading>
-    <Search placeholder="Search..." name='user' type='text'></Search>
-    <Infor>Infor</Infor>
-    <Tree></Tree>
-    <ContractLinks></ContractLinks>
-    </>
-  )
+    <div className="app-container">
+      {/* Truyền hàm toggle vào Header qua prop onTaskButtonClick */}
+      <Header onTaskButtonClick={toggleSidebar} />
+
+      {/* Chỉ render SideBar khi state isSidebarOpen là true */}
+      {isSidebarOpen && (
+        <SideBar isOpen={isSidebarOpen} onClose={closeSidebar} />
+      )}
+
+      <main style={{ padding: '20px' }}>
+         {/* Nội dung chính của website */}
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;

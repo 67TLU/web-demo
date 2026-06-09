@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
@@ -8,11 +6,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
-html {
-  scroll-behavior: smooth;
+ul {
+  list-style: none;
 }
-
 :root {
   /* Light theme colors */
   --color-text-primary: #1F2936;
@@ -24,21 +20,6 @@ html {
   --color-hover-primary: #695CFE;
   --color-hover-secondary: #e2e2fb;
   --color-shadow: rgba(0, 0, 0, 0.05);
-  
-  /* Responsive font sizes */
-  --font-size-base: 16px;
-  --font-size-sm: 14px;
-  --font-size-xs: 12px;
-  --spacing-unit: 8px;
-}
-
-body {
-  font-size: var(--font-size-base);
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-primary);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body.dark-theme {
@@ -53,78 +34,17 @@ body.dark-theme {
   --color-shadow: rgba(0, 0, 0, 0.3);
 }
 
-ul {
-  list-style: none;
-}
-
-/* Mobile-first responsive typography */
-@media (max-width: 768px) {
-  :root {
-    --font-size-base: 15px;
-    --font-size-sm: 13px;
-    --font-size-xs: 11px;
-  }
-
-  body {
-    font-size: 15px;
-  }
-
-  h1 {
-    font-size: 1.5em;
-  }
-
-  h2 {
-    font-size: 1.3em;
-  }
-
-  h3 {
-    font-size: 1.1em;
-  }
-}
-
-@media (max-width: 480px) {
-  :root {
-    --font-size-base: 14px;
-    --font-size-sm: 12px;
-    --font-size-xs: 10px;
-  }
-
-  body {
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 1.3em;
-  }
-
-  h2 {
-    font-size: 1.1em;
-  }
-
-  h3 {
-    font-size: 1em;
-  }
-}
-
-/* Improve touch targets on mobile */
-@media (max-width: 768px) {
-  button,
-  a,
-  input,
-  select,
-  textarea {
-    min-height: 44px;
-    min-width: 44px;
-  }
-}
-
-/* Fix overflow on mobile */
 body {
-  overflow-x: hidden;
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+  transition: background-color 0.3s ease;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* Logic dịch chuyển cần gạt và track màu khi đổi theme */
+body.dark-theme [class*="theme-toggle-track"] {
+  background: #695CFE;
+}
+
+body.dark-theme [class*="theme-toggle-indicator"] {
+  transform: translateX(24px);
 }

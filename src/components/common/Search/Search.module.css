@@ -5,6 +5,8 @@
   align-items: center;
   position: relative;
   max-width: 390px;
+  
+  width: 100%;       /* THÊM: Cho phép khung Search chiếm hết không gian trống được chia */
 }
 
 .input {
@@ -22,8 +24,10 @@
   cursor: text;
   z-index: 0;
   font-size: 16px;
-  min-width: 250px;
-  
+  min-width: 0;
+  padding: 5px;
+  padding-left: 32px;
+  padding-right: 8px;
 }
 
 .input::placeholder {

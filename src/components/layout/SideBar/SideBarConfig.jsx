@@ -1,31 +1,25 @@
-import React from 'react';
-import Button from '../../common/Button/Button'; 
-import { FiAlertOctagon } from "react-icons/fi";
-const headerConfig = {
-  "Trang Chủ": {
-    component: <FiAlertOctagon />, // Chèn component hiển thị TRƯỚC chữ
-    subItems: ["Home 1", "Home 2"]
+export const menuConfig = [
+  { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', path: '#' },
+  { id: 'analytics', label: 'Analytics', icon: 'insert_chart', path: '#' },
+  {
+    id: 'products',
+    label: 'Products',
+    icon: 'storefront',
+    // Thêm submenu tại đây
+    subMenu: [
+      { id: 'prod-list', label: 'Product List', path: '#' },
+      { id: 'prod-add', label: 'Add Product', path: '#' },
+      { id: 'prod-categories', label: 'Categories', path: '#' }
+    ]
   },
-  "Sản Phẩm": {
-    component: <FiAlertOctagon />, // Menu nào không cần chèn component thì để null
-    subItems: []
+  { id: 'customers', label: 'Customers', icon: 'group', path: '#' },
+  {
+    id: 'settings',
+    label: 'Settings',
+    icon: 'settings',
+    subMenu: [
+      { id: 'set-profile', label: 'Profile', path: '#' },
+      { id: 'set-security', label: 'Security', path: '#' }
+    ]
   },
-  "Nạp Tiền": {
-    component: <FiAlertOctagon />,
-    subItems: []
-  },
-  "Community": {
-    component: <FiAlertOctagon />,
-    subItems: []
-  },
-  "Docs": {
-    component: <FiAlertOctagon />,
-    subItems: []
-  },
-  "Login": {
-    component: <FiAlertOctagon />,
-    subItems: []
-  }
-};
-
-export default headerConfig;
+];

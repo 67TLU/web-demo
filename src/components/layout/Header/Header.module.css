@@ -1,120 +1,191 @@
-.nav-bar{
+/* --- TỔNG THỂ HEADER (SIDEBAR STYLE) --- */
+.nav-bar {
     display: flex;
     position: sticky;
-    max-height: 10vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    /* Sử dụng màu nền giống Sidebar thay vì trong suốt */
+    background-color: var(--color-bg-sidebar); 
+    border-bottom: 1px solid var(--color-border-hr);
+    box-shadow: 0 2px 10px var(--color-shadow);
     justify-content: space-between;
     align-items: center;
-    background-color:rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(20px); 
-    -webkit-backdrop-filter: blur(10px); 
-    border: 1px solid rgba(255, 255, 255, 0.2); 
-    border-radius: 12px; 
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-    top:0;
-    left:0;
-    width: 100%;
-    height:70px ;
-    color: white;
-    z-index: 100;
+    padding: 0 20px;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
-.nav-bar svg {
-color: black; 
+
+/* --- LOGO --- */
+.logo-img {
+    height: 40px;
+    object-fit: contain;
 }
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--color-hover-primary);
+    letter-spacing: 1px;
+}
+
+/* --- MENU CHÍNH --- */
+.content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .menu {
     display: flex;
-    gap: 30px;
-    
+    list-style: none;
+    gap: 5px;
 }
-  .task{
-    display: none;
-  }
-.nav-bar img{
-    height: 40px;
-}
+.boxkey {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
 .main-key {
-  position: relative;
-  font-weight: 500;
-  color: #000000;
-  cursor: pointer;
-  padding: 10px 0;
-  transition: color 0.2s ease;
-   display: inline-flex;    /* Biến mục này thành flexbox dạng inline */
-  align-items: center;     /* Căn giữa chữ và icon theo chiều dọc */
-  gap: 6px;                /* Tạo khoảng cách nhỏ vừa phải giữa chữ và icon mũi tên */
-  
+    position: relative;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    display: inline-flex;       /* Sử dụng flex để chữ và icon mũi tên thẳng hàng */
+    align-items: center;        /* Căn giữa chữ và icon theo chiều dọc */
+    gap: 6px;                  /* Khoảng cách giữa chữ và icon mũi tên */
+    white-space: nowrap;       /* KHÔNG CHO PHÉP CHỮ XUỐNG DÒNG */
+    flex-shrink: 0;            /* Ngăn chặn bản thân block này bị bóp méo kích thước */
 }
-@keyframes ani{
-  0% { width: 0%;}
-  100% {width: 100%;}
+
+/* Hiệu ứng hover menu giống Sidebar */
+.main-key:hover {
+    background-color: var(--color-hover-primary);
+    color: white;
 }
-.main-key:hover{
-  color: white;
+
+.main-key svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
 }
-.main-key:hover::before {
-  color: #ffffff;
-  content: "";
-  position: absolute;
-  top:90%;
-  width: 0%;
-  background-color: #ffffff;
-  height: 3px;
-  animation: ani 0.3s ease-in-out forwards;
+
+.main-key:hover svg {
+    transform: rotate(180deg);
 }
+
+/* --- SUBMENU (DROPDOWN) - ĐÃ TỐI ƯU --- */
 .drop-menu {
-  display: none; 
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width:150%;
-  background-color: #ffffff;
-  list-style: none;
-  padding: 8px 0;
-  margin: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-  z-index: 10;
+    display: none; 
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    min-width: 180px;
+    background-color: var(--color-bg-sidebar);
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+    /* Shadow sâu và mịn giống menu cao cấp */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border-hr);
+    border-radius: 12px;
+    z-index: 100;
+    animation: slideUp 0.3s ease;
 }
+/* Tạo một lớp vô hình lấp đầy khoảng trống giữa nút cha và menu con */
+.drop-menu::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Ngoi lên trên để dính chặt vào nút cha */
+    left: 0;
+    width: 100%;
+    height: 12px; /* Độ cao vừa đủ để phủ kín khoảng trống 5px */
+    background: transparent; /* Giữ vô hình, người dùng không nhìn thấy */
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .main-key:hover .drop-menu {
-  display: block; 
+    display: block; 
 }
 
 .drop-menu li {
-  padding: 10px 20px;
-  color: #555555;
-  font-size: 14px;
-  font-weight: 400;
-  white-space: nowrap; 
-  transition: background-color 0.2s;
-}
-.drop-menu li:hover {
-  background-color: #f3f4f6;
-  color: #6366f1;
-}
-.main-key svg {
-    flex-wrap: nowrap;
-}
-.content{
+    padding: 10px 15px;
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-radius: 8px;
+    white-space: nowrap; 
+    transition: all 0.2s;
     display: flex;
     align-items: center;
-    gap:30px;
-    margin-right:40px ;
+    gap: 10px;
 }
-.nav-bar >img, .nav span {
-    margin: 0 40px ;
+
+/* Thêm dấu chấm nhỏ trước item submenu giống Sidebar */
+.drop-menu li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-text-placeholder);
+    border-radius: 50%;
+    transition: all 0.2s;
 }
-@media (max-width :900px ) {
-  .menu {
-    display: none;
-  }
-  .content {
-    gap:10px;
-    margin-right:20px ;
-  }
-  .nav-bar >img{
-    margin: 0 10px;
-  }
-  .task{
-    display: inline-block;
-  }
+
+.drop-menu li:hover {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-hover-primary);
+}
+
+.drop-menu li:hover::before {
+    background-color: var(--color-hover-primary);
+    transform: scale(1.5);
+}
+
+/* --- NÚT BẤM (LIGHT/TASK) --- */
+.light, .task {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    transition: all 0.2s;
+}
+
+.light:hover, .task:hover {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-hover-primary);
+}
+    .task {
+        display: none;
+    }
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .menu {
+        display: none;
+    }
+    .content {
+        gap: 8px;
+        margin-left:8px ;
+    }
+    .task {
+        display: flex;
+    }
+    .nav-bar {
+      height: 50px;
+    }
 }

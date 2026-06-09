@@ -1,0 +1,2138 @@
+This file is a merged representation of a subset of the codebase, containing specifically included files, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Only files matching these patterns are included: src
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+src/App.css
+src/App.jsx
+src/assets/hero.png
+src/assets/react.svg
+src/assets/vite.svg
+src/components/common/Button/Button.jsx
+src/components/common/Button/Button.module.css
+src/components/common/ContractLinks/ContracLinks.module.css
+src/components/common/ContractLinks/ContractLinks.jsx
+src/components/common/ContractLinks/linksConfig.jsx
+src/components/common/Infor/Infor.jsx
+src/components/common/Infor/Infor.module.css
+src/components/common/Loading/Loading.jsx
+src/components/common/Loading/Loading.module.css
+src/components/common/Search/Search.jsx
+src/components/common/Search/Search.module.css
+src/components/common/Tree/Tree.jsx
+src/components/common/Tree/treeConfig.js
+src/components/layout/Header/Header.jsx
+src/components/layout/Header/Header.module.css
+src/components/layout/Header/headerConfig.js
+src/components/layout/SideBar/SideBar.jsx
+src/components/layout/SideBar/SideBar.module.css
+src/components/layout/SideBar/SideBarConfig.jsx
+src/config/config.js
+src/css.css
+src/demo.txt
+src/html.html
+src/index.css
+src/js.js
+src/main.jsx
+src/New Text Document.txt
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="src/css.css">
+/* Importing Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  /* Light theme colors */
+  --color-text-primary: #1F2936;
+  --color-text-placeholder: #798EAE;
+  --color-bg-primary: #f9fafb;
+  --color-bg-secondary: #ECECFD;
+  --color-bg-sidebar: #FFFFFF;
+  --color-border-hr: #E2E8F0;
+  --color-hover-primary: #695CFE;
+  --color-hover-secondary: #e2e2fb;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+}
+body.dark-theme {
+  /* Dark theme colors */
+  --color-text-primary: #F1F5F9;
+  --color-text-placeholder: #A6B7D2;
+  --color-bg-primary: #111827;
+  --color-bg-secondary: #3D4859;
+  --color-bg-sidebar: #1f2937;
+  --color-border-hr: #3B475C;
+  --color-hover-secondary: #48566a;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+}
+body {
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  width: 270px;
+  height: 100vh;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  background: var(--color-bg-sidebar);
+  border-right: 1px solid var(--color-border-hr);
+  box-shadow: 0 3px 9px var(--color-shadow);
+  transition: width 0.4s ease;
+}
+.sidebar.collapsed {
+  width: 90px;
+}
+.sidebar .sidebar-header {
+  padding: 20px 18px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-hr);
+}
+.sidebar-header .header-logo {
+  width: 46px;
+  height: 46px;
+  display: block;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: opacity 0.4s ease;
+}
+.sidebar.collapsed .header-logo {
+  opacity: 0;
+  pointer-events: none;
+}
+.site-nav .sidebar-toggle,
+.sidebar-header .sidebar-toggle {
+  height: 40px;
+  width: 40px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  position: absolute;
+  right: 18px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+  transition: 0.4s ease;
+}
+.site-nav .sidebar-toggle:hover,
+.sidebar-header .sidebar-toggle:hover {
+  background: var(--color-hover-secondary);
+}
+.sidebar.collapsed .sidebar-header .sidebar-toggle {
+  transform: translateX(-2px);
+  height: 48px;
+  width: 50px;
+}
+.sidebar-header .sidebar-toggle span {
+  font-size: 1.75rem;
+  transition: transform 0.4s ease;
+}
+.sidebar.collapsed .sidebar-toggle span {
+  transform: rotate(180deg);
+}
+.sidebar .sidebar-content {
+  flex: 1;
+  padding: 20px 18px;
+  overflow: hidden auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-text-placeholder) transparent;
+}
+.sidebar.collapsed .sidebar-content {
+  scrollbar-width: none;
+}
+.sidebar-content .search-form {
+  border-radius: 8px;
+  min-height: 48px;
+  margin: 5px 0 20px;
+  align-items: center;
+  display: flex;
+  padding: 0 15px;
+  white-space: nowrap;
+  background: var(--color-bg-secondary);
+  transition: 0.4s ease;
+}
+.sidebar.collapsed .search-form:hover {
+  cursor: pointer;
+}
+.sidebar-content .search-form:focus-within,
+.sidebar.collapsed .search-form:hover {
+  background: var(--color-hover-secondary);
+}
+.sidebar-content .search-form span {
+  color: var(--color-text-placeholder);
+}
+.search-form input {
+  background: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  margin-left: 15px;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+}
+.search-form input::placeholder {
+  color: var(--color-text-placeholder);
+}
+.sidebar-content .menu-list {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  flex-direction: column;
+}
+.menu-list .menu-link {
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+  border-radius: 8px;
+  padding: 12px 15px;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: 0.3s ease;
+}
+.menu-link .menu-label {
+  transition: opacity 0.3s ease;
+}
+.sidebar.collapsed .menu-link .menu-label {
+  opacity: 0;
+  pointer-events: none;
+}
+.menu-list .menu-link:is(:hover, .active) {
+  color: #fff;
+  background: var(--color-hover-primary);
+}
+.sidebar .sidebar-footer {
+  padding: 20px 18px;
+  white-space: nowrap;
+  border-top: 1px solid var(--color-border-hr);
+}
+.sidebar-footer .theme-toggle {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  padding: 0 15px;
+  white-space: nowrap;
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+  transition: 0.3s ease;
+}
+.sidebar-footer .theme-toggle:hover {
+  background: var(--color-hover-secondary);
+}
+.theme-toggle .theme-label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.theme-toggle .theme-label .theme-text {
+  font-size: 1rem;
+  transition: opacity 0.4s 0.2s ease;
+}
+.sidebar.collapsed .theme-toggle :where(.theme-text, .theme-toggle-track) {
+  opacity: 0;
+  width: 0;
+  transition: all 0.2s ease;
+}
+.theme-toggle .theme-toggle-track {
+  height: 24px;
+  width: 48px;
+  border-radius: 999px;
+  margin-left: auto;
+  background: #c3d1ec;
+  position: relative;
+  transition: opacity 0.4s 0.2s ease, background-color 0.3s ease;
+}
+body.dark-theme .theme-toggle-track {
+  background: #695CFE;
+}
+.theme-toggle-track .theme-toggle-indicator {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+body.dark-theme .theme-toggle-indicator {
+  transform: translateX(24px);
+}
+.site-nav {
+  top: 0;
+  display: none;
+  padding: 15px 20px;
+  position: sticky;
+  background: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border-hr);
+}
+.site-nav .sidebar-toggle {
+  position: unset;
+}
+.container {
+  display: flex;
+}
+.container .main-content {
+  flex: 1;
+  padding: 30px;
+  color: var(--color-text-primary);
+}
+.main-content .page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.main-content .card {
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--color-bg-sidebar);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+/* Responsive media query code for small screens */
+@media (max-width: 768px) {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.6);
+    transition: 0.4s ease;
+  }
+  body:has(.sidebar:not(.collapsed))::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  body:has(.sidebar:not(.collapsed)) {
+    overflow: hidden;
+  }
+  .site-nav {
+    display: block;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 20;
+    width: 270px;
+    transition: left 0.4s ease;
+  }
+  .sidebar.collapsed {
+    left: -270px;
+    width: 270px;
+  }
+  .container .main-content {
+    padding: 30px 20px;
+  }
+}
+</file>
+
+<file path="src/html.html">
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/@codingnepal -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar Menu | CodingNepal</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Linking Google fonts for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="site-nav">
+      <button class="sidebar-toggle">
+        <span class="material-symbols-rounded">menu</span>
+      </button>
+    </nav>
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar collapsed">
+        <!-- Sidebar header -->
+        <div class="sidebar-header">
+          <img src="logo.png" alt="CodingNepal" class="header-logo" />
+          <button class="sidebar-toggle">
+            <span class="material-symbols-rounded">chevron_left</span>
+          </button>
+        </div>
+        <div class="sidebar-content">
+          <!-- Search Form -->
+          <form action="#" class="search-form">
+            <span class="material-symbols-rounded">search</span>
+            <input type="search" placeholder="Search..." required />
+          </form>
+          <!-- Sidebar Menu -->
+          <ul class="menu-list">
+            <li class="menu-item">
+              <a href="#" class="menu-link active">
+                <span class="material-symbols-rounded">dashboard</span>
+                <span class="menu-label">Dashboard</span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <span class="material-symbols-rounded">insert_chart</span>
+                <span class="menu-label">Analytics</span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <span class="material-symbols-rounded">notifications</span>
+                <span class="menu-label">Notifications</span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <span class="material-symbols-rounded">star</span>
+                <span class="menu-label">Favourites</span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <span class="material-symbols-rounded">storefront</span>
+                <span class="menu-label">Products</span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <span class="material-symbols-rounded">group</span>
+                <span class="menu-label">Customers</span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <span class="material-symbols-rounded">settings</span>
+                <span class="menu-label">Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <button class="theme-toggle">
+            <div class="theme-label">
+              <span class="theme-icon material-symbols-rounded">dark_mode</span>
+              <span class="theme-text">Dark Mode</span>
+            </div>
+            <div class="theme-toggle-track">
+              <div class="theme-toggle-indicator"></div>
+            </div>
+          </button>
+        </div>
+      </aside>
+      <!-- Site main content -->
+      <div class="main-content">
+        <h1 class="page-title">Dashboard Overview</h1>
+        <p class="card">Welcome to your dashboard! Use the menu to navigate, toggle the sidebar, or switch between light and dark themes to personalize your experience.</p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+</file>
+
+<file path="src/js.js">
+const sidebarToggleBtns = document.querySelectorAll(".sidebar-toggle");
+const sidebar = document.querySelector(".sidebar");
+const searchForm = document.querySelector(".search-form");
+const themeToggleBtn = document.querySelector(".theme-toggle");
+const themeIcon = themeToggleBtn.querySelector(".theme-icon");
+const menuLinks = document.querySelectorAll(".menu-link");
+// Updates the theme icon based on current theme and sidebar state
+const updateThemeIcon = () => {
+  const isDark = document.body.classList.contains("dark-theme");
+  themeIcon.textContent = sidebar.classList.contains("collapsed") ? (isDark ? "light_mode" : "dark_mode") : "dark_mode";
+};
+// Apply dark theme if saved or system prefers, then update icon
+const savedTheme = localStorage.getItem("theme");
+const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const shouldUseDarkTheme = savedTheme === "dark" || (!savedTheme && systemPrefersDark);
+document.body.classList.toggle("dark-theme", shouldUseDarkTheme);
+updateThemeIcon();
+// Toggle between themes on theme button click
+themeToggleBtn.addEventListener("click", () => {
+  const isDark = document.body.classList.toggle("dark-theme");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+  updateThemeIcon();
+});
+// Toggle sidebar collapsed state on buttons click
+sidebarToggleBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    updateThemeIcon();
+  });
+});
+// Expand the sidebar when the search form is clicked
+searchForm.addEventListener("click", () => {
+  if (sidebar.classList.contains("collapsed")) {
+    sidebar.classList.remove("collapsed");
+    searchForm.querySelector("input").focus();
+  }
+});
+// Expand sidebar by default on large screens
+if (window.innerWidth > 768) sidebar.classList.remove("collapsed");
+</file>
+
+<file path="src/New Text Document.txt">
+
+</file>
+
+<file path="src/App.jsx">
+import { useEffect, useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
+import './App.css'
+import Config from './config/config'
+import Header from './components/layout/Header/Header.jsx'
+import SideBar from './components/layout/SideBar/SideBar'
+import Loading from './components/common/Loading/Loading'
+import Button from './components/common/Button/Button'
+import Search from './components/common/Search/Search'
+import Infor from './components/common/Infor/Infor'
+import Tree from './components/common/Tree/Tree'
+import ContractLinks from './components/common/ContractLinks/ContractLinks'
+function App() {
+  const [count, setCount] = useState(0)
+  useEffect(()=>{
+    document.title=Config.TITLE;
+  },[]);
+  return (
+    <>
+    <Header></Header>
+    <SideBar></SideBar>
+    <Button className='button'>aksjdhiaóduiády</Button>
+    <Loading></Loading>
+    <Search placeholder="Search..." name='user' type='text'></Search>
+    <Infor>Infor</Infor>
+    <Tree></Tree>
+    <ContractLinks></ContractLinks>
+        <Button className='button'>aksjdhiaóduiády</Button>
+    <Loading></Loading>
+    <Search placeholder="Search..." name='user' type='text'></Search>
+    <Infor>Infor</Infor>
+    <Tree></Tree>
+    <ContractLinks></ContractLinks>
+        <Button className='button'>aksjdhiaóduiády</Button>
+    <Loading></Loading>
+    <Search placeholder="Search..." name='user' type='text'></Search>
+    <Infor>Infor</Infor>
+    <Tree></Tree>
+    <ContractLinks></ContractLinks>
+    </>
+  )
+}
+
+export default App
+</file>
+
+<file path="src/assets/react.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="35.93" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 228"><path fill="#00D8FF" d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path></svg>
+</file>
+
+<file path="src/assets/vite.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="77" height="47" fill="none" aria-labelledby="vite-logo-title" viewBox="0 0 77 47"><title id="vite-logo-title">Vite</title><style>.parenthesis{fill:#000}@media (prefers-color-scheme:dark){.parenthesis{fill:#fff}}</style><path fill="#9135ff" d="M40.151 45.71c-.663.844-2.02.374-2.02-.699V34.708a2.26 2.26 0 0 0-2.262-2.262H24.493c-.92 0-1.457-1.04-.92-1.788l7.479-10.471c1.07-1.498 0-3.578-1.842-3.578H15.443c-.92 0-1.456-1.04-.92-1.788l9.696-13.576c.213-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.472c-1.07 1.497 0 3.578 1.842 3.578h11.376c.944 0 1.474 1.087.89 1.83L40.153 45.712z"/><mask id="a" width="48" height="47" x="14" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#000" d="M40.047 45.71c-.663.843-2.02.374-2.02-.699V34.708a2.26 2.26 0 0 0-2.262-2.262H24.389c-.92 0-1.457-1.04-.92-1.788l7.479-10.472c1.07-1.497 0-3.578-1.842-3.578H15.34c-.92 0-1.456-1.04-.92-1.788l9.696-13.575c.213-.297.556-.474.92-.474H53.93c.92 0 1.456 1.04.92 1.788L47.37 13.03c-1.07 1.498 0 3.578 1.842 3.578h11.376c.944 0 1.474 1.088.89 1.831L40.049 45.712z"/></mask><g mask="url(#a)"><g filter="url(#b)"><ellipse cx="5.508" cy="14.704" fill="#eee6ff" rx="5.508" ry="14.704" transform="rotate(269.814 20.96 11.29)scale(-1 1)"/></g><g filter="url(#c)"><ellipse cx="10.399" cy="29.851" fill="#eee6ff" rx="10.399" ry="29.851" transform="rotate(89.814 -16.902 -8.275)scale(1 -1)"/></g><g filter="url(#d)"><ellipse cx="5.508" cy="30.487" fill="#8900ff" rx="5.508" ry="30.487" transform="rotate(89.814 -19.197 -7.127)scale(1 -1)"/></g><g filter="url(#e)"><ellipse cx="5.508" cy="30.599" fill="#8900ff" rx="5.508" ry="30.599" transform="rotate(89.814 -25.928 4.177)scale(1 -1)"/></g><g filter="url(#f)"><ellipse cx="5.508" cy="30.599" fill="#8900ff" rx="5.508" ry="30.599" transform="rotate(89.814 -25.738 5.52)scale(1 -1)"/></g><g filter="url(#g)"><ellipse cx="14.072" cy="22.078" fill="#eee6ff" rx="14.072" ry="22.078" transform="rotate(93.35 31.245 55.578)scale(-1 1)"/></g><g filter="url(#h)"><ellipse cx="3.47" cy="21.501" fill="#8900ff" rx="3.47" ry="21.501" transform="rotate(89.009 35.419 55.202)scale(-1 1)"/></g><g filter="url(#i)"><ellipse cx="3.47" cy="21.501" fill="#8900ff" rx="3.47" ry="21.501" transform="rotate(89.009 35.419 55.202)scale(-1 1)"/></g><g filter="url(#j)"><ellipse cx="14.592" cy="9.743" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(39.51 14.592 9.743)"/></g><g filter="url(#k)"><ellipse cx="61.728" cy="-5.321" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 61.728 -5.32)"/></g><g filter="url(#l)"><ellipse cx="55.618" cy="7.104" fill="#00c2ff" rx="5.971" ry="9.665" transform="rotate(37.892 55.618 7.104)"/></g><g filter="url(#m)"><ellipse cx="12.326" cy="39.103" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 12.326 39.103)"/></g><g filter="url(#n)"><ellipse cx="12.326" cy="39.103" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 12.326 39.103)"/></g><g filter="url(#o)"><ellipse cx="49.857" cy="30.678" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 49.857 30.678)"/></g><g filter="url(#p)"><ellipse cx="52.623" cy="33.171" fill="#00c2ff" rx="5.971" ry="15.297" transform="rotate(37.892 52.623 33.17)"/></g></g><path d="M6.919 0c-9.198 13.166-9.252 33.575 0 46.789h6.215c-9.25-13.214-9.196-33.623 0-46.789zm62.424 0h-6.215c9.198 13.166 9.252 33.575 0 46.789h6.215c9.25-13.214 9.196-33.623 0-46.789" class="parenthesis"/><defs><filter id="b" width="60.045" height="41.654" x="-5.564" y="16.92" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="c" width="90.34" height="51.437" x="-40.407" y="-6.762" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="d" width="79.355" height="29.4" x="-35.435" y="2.801" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="e" width="79.579" height="29.4" x="-30.84" y="20.8" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="f" width="79.579" height="29.4" x="-29.307" y="21.949" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="g" width="74.749" height="58.852" x="29.961" y="-17.13" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="h" width="61.377" height="25.362" x="37.754" y="3.055" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="i" width="61.377" height="25.362" x="37.754" y="3.055" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="j" width="56.045" height="63.649" x="-13.43" y="-22.082" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="k" width="54.814" height="64.646" x="34.321" y="-37.644" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="l" width="33.541" height="35.313" x="38.847" y="-10.552" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="m" width="54.814" height="64.646" x="-15.081" y="6.78" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="n" width="54.814" height="64.646" x="-15.081" y="6.78" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="o" width="54.814" height="64.646" x="22.45" y="-1.645" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="p" width="39.409" height="43.623" x="32.919" y="11.36" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter></defs></svg>
+</file>
+
+<file path="src/components/common/Button/Button.jsx">
+import { Children } from 'react';
+import Style from './Button.module.css';
+import Loading from '../Loading/Loading';
+function Button({disabled,children,isLoading})
+{
+return (
+<button 
+  className={Style.button} 
+  disabled={disabled || isLoading} 
+  style={{ position: 'relative' }}
+>
+  {isLoading && (
+    <Loading 
+      style={{ 
+        position: 'absolute',
+        left: '50%',
+        top: '45%',
+        transform: 'translate(-50%, -50%)'
+      }} 
+    />
+  )}
+
+  {isLoading ? (
+    <div style={{ opacity: 0 }}>{children}</div>
+  ) : (
+    <div>{children}</div>
+  )}
+</button>
+
+)
+}
+export default Button
+</file>
+
+<file path="src/components/common/Button/Button.module.css">
+.button {
+ appearance: none;
+ background-color: ;
+ border: 0.125em solid #1A1A1A;
+ border-radius: 0.9375em;
+ box-sizing: border-box;
+ color: #3B3B3B;
+ cursor: pointer;
+ display: inline-block;
+ font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+ font-size: 16px;
+ font-weight: 600;
+ line-height: normal;
+ margin: 0;
+ min-height: 2.5em;
+ min-width: 3.5em;
+ outline: none;
+ padding: 0.5em 1em;
+ text-align: center;
+ text-decoration: none;
+ transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+ user-select: none;
+ -webkit-user-select: none;
+ touch-action: manipulation;
+ will-change: transform;
+}
+
+.button:disabled {
+ pointer-events: none;
+ opacity: 0.7;
+ border-color: #464646;
+}
+
+.button:hover {
+ color: #fff;
+ background-color: #1A1A1A;
+ box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+ transform: translateY(-2px);
+}
+
+.button:active {
+ box-shadow: none;
+ transform: translateY(0);
+}
+</file>
+
+<file path="src/components/common/ContractLinks/ContracLinks.module.css">
+/* From Uiverse.io by wilsondesouza */ 
+
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+.example-2 .icon-content .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #4d4d4d;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+.example-2 .icon-content a:hover {
+  color: white;
+}
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+
+.example-2 .icon-content a[data-social="fb"] .filled,
+.example-2 .icon-content a[data-social="fb"] ~ .tooltip {
+  background-color: #0274b3;
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+  background-color: #24262a;
+}
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+  );
+}
+.example-2 .icon-content a[data-social="youtube"] .filled,
+.example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+  background-color: #ff0000;
+}
+</file>
+
+<file path="src/components/common/ContractLinks/ContractLinks.jsx">
+import React from 'react';
+import Style from './ContracLinks.module.css';
+import { linksConfig } from './linksConfig.jsx'; // Import cấu hình ở trên
+
+function ContractLinks() {
+  return (
+    <ul className={Style['example-2']}>
+      {linksConfig.map((item) => (
+        <li key={item.name} className={Style["icon-content"]}>
+          <a
+            href={item.url}
+            aria-label={item.name}
+            data-social={item.social}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className={Style["filled"]}/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={16}
+              height={16}
+              fill="currentColor"
+              className={`bi bi-${item.social}`}
+              viewBox={item.viewBox}
+              xmlSpace="preserve"
+            >
+              {item.isCustomSvg ? (
+                item.svgContent
+              ) : (
+                <path d={item.svgPath} fill="currentColor" />
+              )}
+            </svg>
+          </a>
+          <div className={Style["tooltip"]}>{item.name}</div>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export default ContractLinks;
+</file>
+
+<file path="src/components/common/ContractLinks/linksConfig.jsx">
+export const linksConfig = [
+  {
+    name: "Facebook",
+    url: "https://facebook.com/",
+    social: "fb",
+    svgPath: "M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z",
+    viewBox: "0 0 16 16"
+  },
+  {
+    name: "GitHub",
+    url: "https://www.github.com/",
+    social: "github",
+    svgPath: "M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8",
+    viewBox: "0 0 16 16"
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/",
+    social: "instagram",
+    svgPath: "M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334",
+    viewBox: "0 0 16 16"
+  },
+  {
+    name: "Youtube",
+    url: "https://youtube.com/",
+    social: "youtube",
+    // Đối với Youtube có cấu trúc path phức tạp hơn, ta lưu mảng hoặc chuỗi thẻ path trực tiếp
+    isCustomSvg: true,
+    svgContent: (
+      <>
+        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" fill="currentColor" />
+      </>
+    ),
+    viewBox: "0 0 16 16"
+  }
+];
+</file>
+
+<file path="src/components/common/Infor/Infor.jsx">
+function Infor({children}) {
+  return (
+    <>
+      {/* From Uiverse.io by themrsami */}
+      {/* 1. ĐÃ XÓA padding ở thẻ div bao ngoài này để tránh lệch layout */}
+      <div className="relative inline-block group">
+        
+        {/* 2. ĐÃ THAY THẾ px-6 py-3 thành py-[10px] px-[15px] trực tiếp tại nút bấm */}
+        <button className="relative py-[10px] px-[15px] text-sm font-semibold text-white bg-indigo-600/90 rounded-xl hover:bg-indigo-700/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 overflow-hidden" style={{padding : '7px 14px'}}>
+          
+          {/* 3. ĐÃ XÓA padding thừa ở thẻ hiệu ứng blur này */}
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl group-hover:opacity-75 transition-opacity" />
+          
+          <span className="relative flex items-center gap-2">
+            <svg
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              fill="none"
+              className="w-4 h-4"
+            >
+              <path
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                strokeWidth={2}
+                strokeLinejoin="round"
+                strokeLinecap="round"
+              />
+            </svg>
+            {children}
+          </span>
+        </button>
+
+        {/* Khối Tooltip hiển thị khi Hover giữ nguyên */}
+        <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 bottom-full left-1/2 -translate-x-1/2 mb-3 w-72 transition-all duration-300 ease-out transform group-hover:translate-y-0 translate-y-2">
+          <div className="relative p-4 bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(79,70,229,0.15)]">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-500/20">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-4 h-4 text-indigo-400"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    fillRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-sm font-semibold text-white">
+                Important Information
+              </h3>
+            </div>
+            <div className="space-y-2">
+              <p className="text-sm text-gray-300">
+                This is a tooltip with detailed information and custom styling.
+              </p>
+              <div className="flex items-center gap-2 text-xs text-gray-400">
+                <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                  <path
+                    clipRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                <span>Premium Feature</span>
+              </div>
+            </div>
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500/10 to-purple-500/10 blur-xl opacity-50" />
+            <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-gradient-to-br from-gray-900/95 to-gray-800/95 rotate-45 border-r border-b border-white/10" />
+          </div>
+        </div>
+
+      </div>
+    </>
+  )
+}
+
+export default Infor;
+</file>
+
+<file path="src/components/common/Infor/Infor.module.css">
+
+</file>
+
+<file path="src/components/common/Loading/Loading.jsx">
+import Style from './Loading.module.css'
+function Loading({style}){
+    console.log(style)
+    return (
+        
+<div className={Style.loading} style={style}>
+<div className={Style.spinner}>
+  <div></div>   
+  <div></div>    
+  <div></div>    
+  <div></div>    
+  <div></div>    
+  <div></div>    
+  <div></div>    
+  <div></div>    
+  <div></div>    
+  <div></div>    
+</div>
+</div>
+    )
+}
+export default Loading;
+</file>
+
+<file path="src/components/common/Loading/Loading.module.css">
+.loading {
+  position: relative;
+  height: 5px;
+  width: 5px;
+  
+}
+.spinner {
+  width: 9px;
+  height: 9px;
+}
+.spinner div {
+  position: absolute;
+  width: 50%;
+  height: 150%;
+  background: #474bff;
+  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+  animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
+}
+
+.spinner div:nth-child(1) {
+  --delay: 0.1;
+  --rotation: 36;
+  --translation: 150;
+}
+
+.spinner div:nth-child(2) {
+  --delay: 0.2;
+  --rotation: 72;
+  --translation: 150;
+}
+
+.spinner div:nth-child(3) {
+  --delay: 0.3;
+  --rotation: 108;
+  --translation: 150;
+}
+
+.spinner div:nth-child(4) {
+  --delay: 0.4;
+  --rotation: 144;
+  --translation: 150;
+}
+
+.spinner div:nth-child(5) {
+  --delay: 0.5;
+  --rotation: 180;
+  --translation: 150;
+}
+
+.spinner div:nth-child(6) {
+  --delay: 0.6;
+  --rotation: 216;
+  --translation: 150;
+}
+
+.spinner div:nth-child(7) {
+  --delay: 0.7;
+  --rotation: 252;
+  --translation: 150;
+}
+
+.spinner div:nth-child(8) {
+  --delay: 0.8;
+  --rotation: 288;
+  --translation: 150;
+}
+
+.spinner div:nth-child(9) {
+  --delay: 0.9;
+  --rotation: 324;
+  --translation: 150;
+}
+
+.spinner div:nth-child(10) {
+  --delay: 1;
+  --rotation: 360;
+  --translation: 150;
+}
+
+@keyframes spinner-fzua35 {
+  0%, 10%, 20%, 30%, 50%, 60%, 70%, 80%, 90%, 100% {
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+  }
+
+  50% {
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));
+  }
+}
+</file>
+
+<file path="src/components/common/Search/Search.jsx">
+import Style from './Search.module.css'
+function Search({placeholder,name,id,type,style}){
+    console.log(Style['search-icon']);
+    return (
+<div className={Style.search} style={style}>
+  <svg viewBox="0 0 24 24" aria-hidden="true" className={Style['search-icon']}>
+    <g>
+      <path
+        d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+      ></path>
+    </g>
+  </svg>
+
+  <input
+    className={Style.input}
+    type={type}
+    placeholder={placeholder}
+    name={name}
+  />
+</div>
+
+    )
+}
+export default Search;
+</file>
+
+<file path="src/components/common/Search/Search.module.css">
+/* From Uiverse.io by LightAndy1 */ 
+.search {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 390px;
+}
+
+.input {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right:0.5rem;
+  box-shadow: 0 0 0 1.5px #2b2c37, 0 0 25px -17px #000;
+  border: 0;
+  border-radius: 12px;
+  background-color:rgb(227, 227, 227);
+  outline: none;
+  color: #000000;
+  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: text;
+  z-index: 0;
+  font-size: 16px;
+  min-width: 250px;
+  
+}
+
+.input::placeholder {
+  color: #000000;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 2.5px #2f303d, 0px 0px 25px -15px #000;
+}
+
+.input:active {
+  transform: scale(0.95);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 2.5px #2f303d;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.6rem;
+  fill: #000000;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  z-index: 1;
+}
+</file>
+
+<file path="src/components/common/Tree/Tree.jsx">
+import React, { useState } from "react";
+import { treeConfig } from "./treeConfig.js"; // Import file cấu hình ở trên
+
+function ProjectStructure() {
+  // Quản lý trạng thái đóng/mở của các folder bằng ID
+  const [openFolders, setOpenFolders] = useState({
+    root: true,
+    src: true,
+    app: true,
+  });
+
+  const toggleFolder = (id) => {
+    setOpenFolders((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  // Hàm đệ quy quét dữ liệu cấu hình để vẽ cây thư mục
+  const renderTree = (nodes, currentPrefix = "", parentIsOpen = true) => {
+    if (!parentIsOpen) return null;
+
+    return nodes.map((node, index) => {
+      const isLast = index === nodes.length - 1;
+      // Xác định ký tự nhánh dựa vào vị trí cuối cùng hay ở giữa
+      const branch = isLast ? "└── " : "├── ";
+      // Ký tự truyền xuống các cấp con tiếp theo
+      const nextPrefix = currentPrefix + (isLast ? "    " : "│   ");
+
+      if (node.type === "folder") {
+        const isOpen = !!openFolders[node.id];
+        
+        return (
+          <div key={node.id || node.name}>
+            {/* Dòng hiển thị Thư mục */}
+            <div
+              onClick={() => node.id && toggleFolder(node.id)}
+              className={`flex items-center hover:bg-white/5 py-0.5 px-2 rounded transition-colors ${
+                node.id ? "cursor-pointer text-amber-400/90" : "cursor-not-allowed opacity-50"
+              }`}
+            >
+              <span className="text-gray-600 font-sans">{currentPrefix}{branch}</span>
+              <span className="mr-1.5">{isOpen ? "📂" : "📁"}</span>
+              <span className={node.id === "root" ? "text-white font-semibold" : ""}>{node.name}</span>
+            </div>
+            {/* Đệ quy gọi lại chính nó để vẽ các thư mục con bên trong */}
+            {node.children && renderTree(node.children, nextPrefix, isOpen)}
+          </div>
+        );
+      }
+
+      // Dòng hiển thị File
+      return (
+        <div key={node.name} className="flex items-center hover:bg-white/5 py-0.5 px-2 rounded">
+          <span className="text-gray-600 font-sans">{currentPrefix}{branch}</span>
+          <span className="mr-1.5">{node.icon || "📄"}</span>
+          <span className={node.color || "text-sky-400"}>{node.name}</span>
+        </div>
+      );
+    });
+  };
+
+  return (
+    <div className="p-6 bg-gray-950 rounded-2xl border border-white/10 w-full max-w-md font-mono text-sm text-gray-300 shadow-2xl select-none" style={{padding:'10px 15px'}}>
+      <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3 pb-2 border-b border-white/5 flex justify-between items-center">
+        <span>Dynamic Workspace</span>
+        <span className="text-[10px] text-teal-400 lowercase bg-teal-500/10 px-2 py-0.5 rounded"></span>
+      </div>
+
+      <div className="space-y-0.5">
+        {/* Chỉ cần gọi hàm và truyền mảng config vào */}
+        {renderTree(treeConfig)}
+      </div>
+    </div>
+  );
+}
+
+export default ProjectStructure;
+</file>
+
+<file path="src/components/common/Tree/treeConfig.js">
+export const treeConfig = [
+  {
+    name: "my-app/",
+    type: "folder",
+    id: "root",
+    children: [
+      { name: "node_modules/", type: "folder", id: "node_modules", children: [] },
+      {
+        name: "public/",
+        type: "folder",
+        id: "public",
+        children: [
+          { name: "favicon.ico", type: "file" },
+          { name: "images/", type: "folder", id: "images", children: [] }
+        ]
+      },
+      {
+        name: "src/",
+        type: "folder",
+        id: "src",
+        children: [
+          {
+            name: "app/",
+            type: "folder",
+            id: "app",
+            children: [
+              { name: "favicon.ico", type: "file" },
+              { name: "layout.js", type: "file" },
+              { name: "page.js", type: "file" },
+              {
+                name: "about/",
+                type: "folder",
+                id: "about",
+                children: [{ name: "page.js", type: "file" }]
+              },
+              {
+                name: "contact/",
+                type: "folder",
+                id: "contact",
+                children: [{ name: "page.js", type: "file" }]
+              }
+            ]
+          }
+        ]
+      },
+      { name: ".gitignore", type: "file", icon: "⚙️", color: "text-gray-400" },
+      { name: "package.json", type: "file", icon: "📦", color: "text-teal-400" },
+      { name: "README.md", type: "file", icon: "📖", color: "text-emerald-400" }
+    ]
+  }
+];
+</file>
+
+<file path="src/components/layout/Header/Header.jsx">
+import CONFIG from '../../../config/config'
+import headerConfig from './headerConfig'
+import Style from './Header.module.css'
+import Search from "../../common/Search/Search"
+function Header(){
+    let isImg=CONFIG.LOGO;
+    return (
+
+        <nav className={Style['nav-bar']}>
+            {isImg ? <img src={isImg} alt="Logo" className={Style['logo-img']}/>:<span className={Style['logo-text']}>LOGO</span>}
+           <div className={Style['content']}>
+            <Search placeholder="Search..."></Search>
+<ul className={Style['menu']}>
+   
+  {Object.entries(headerConfig).map(([mainKey, subItems])=> <li className={Style['main-key']} key={mainKey}>
+    {subItems&&subItems.length>0?(<>{mainKey}
+        <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-chevron-down h-3.5 w-3.5 transition-transform duration-200"
+      aria-hidden="true"
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg></>):
+        mainKey}
+    {subItems&&subItems.length>0 && <ul className={Style['drop-menu']}>
+        {subItems.map(Items=><li key={Items}>{Items}</li>)}
+        </ul>}
+  </li>)}
+</ul>
+<button className={Style["light"]}>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={22}
+  height={22}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  strokeWidth={2}
+  strokeLinecap="round"
+  strokeLinejoin="round"
+
+  aria-hidden="true"
+>
+  <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+</svg>
+</button>
+<button className={Style['task']}>    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={22}
+      height={22}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-menu h-6 w-6"
+      aria-hidden="true"
+
+    >
+      <path d="M4 5h16M4 12h16M4 19h16" />
+    </svg></button>
+</div>
+        </nav>
+    )
+}
+export default Header;
+</file>
+
+<file path="src/components/layout/Header/Header.module.css">
+.nav-bar{
+    display: flex;
+    position: sticky;
+    max-height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 12px; 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    top:0;
+    left:0;
+    width: 100%;
+    height:70px ;
+    color: white;
+    z-index: 100;
+}
+.nav-bar svg {
+color: black; 
+}
+.menu {
+    display: flex;
+    gap: 30px;
+    
+}
+  .task{
+    display: none;
+  }
+.nav-bar img{
+    height: 40px;
+}
+.main-key {
+  position: relative;
+  font-weight: 500;
+  color: #000000;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: color 0.2s ease;
+   display: inline-flex;    /* Biến mục này thành flexbox dạng inline */
+  align-items: center;     /* Căn giữa chữ và icon theo chiều dọc */
+  gap: 6px;                /* Tạo khoảng cách nhỏ vừa phải giữa chữ và icon mũi tên */
+  
+}
+@keyframes ani{
+  0% { width: 0%;}
+  100% {width: 100%;}
+}
+.main-key:hover{
+  color: white;
+}
+.main-key:hover::before {
+  color: #ffffff;
+  content: "";
+  position: absolute;
+  top:90%;
+  width: 0%;
+  background-color: #ffffff;
+  height: 3px;
+  animation: ani 0.3s ease-in-out forwards;
+}
+.drop-menu {
+  display: none; 
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width:150%;
+  background-color: #ffffff;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  z-index: 10;
+}
+.main-key:hover .drop-menu {
+  display: block; 
+}
+
+.drop-menu li {
+  padding: 10px 20px;
+  color: #555555;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap; 
+  transition: background-color 0.2s;
+}
+.drop-menu li:hover {
+  background-color: #f3f4f6;
+  color: #6366f1;
+}
+.main-key svg {
+    flex-wrap: nowrap;
+}
+.content{
+    display: flex;
+    align-items: center;
+    gap:30px;
+    margin-right:40px ;
+}
+.nav-bar >img, .nav span {
+    margin: 0 40px ;
+}
+@media (max-width :900px ) {
+  .menu {
+    display: none;
+  }
+  .content {
+    gap:10px;
+    margin-right:20px ;
+  }
+  .nav-bar >img{
+    margin: 0 10px;
+  }
+  .task{
+    display: inline-block;
+  }
+}
+</file>
+
+<file path="src/components/layout/Header/headerConfig.js">
+import CONFIG from '../../../config/config'
+const headerConfig={
+        "Trang Chu":["Home 1","Home 2"],
+        "San Pham":[],
+        "Nap Tien":[],
+        "Community":[],
+        "Docs":[],
+        "Login":[]
+}
+export default headerConfig;
+</file>
+
+<file path="src/components/layout/SideBar/SideBar.jsx">
+import Style from "./SideBar.module.css";
+import { FiAlignJustify } from "react-icons/fi";
+import CONFIG from "../../../config/config";
+import SideBarConfig from "./SideBarConfig.jsx";
+import { FiChevronRight } from "react-icons/fi";
+import { FaTimes } from 'react-icons/fa';
+function SideBar() {
+  let isImg = CONFIG.LOGO;
+  return (
+    <div className={Style["side-bar"]}>
+        
+      <nav className={Style["nav-bar"]}>
+        <div>
+          {isImg ? (
+            <img src={isImg} alt="Logo" className={Style["logo-img"]} />
+          ) : (
+            <span className={Style["logo-text"]}>LOGO</span>
+          )}
+          <div className={Style["content"]}></div>
+           <FaTimes size={10} />
+        </div>
+        <ul className={Style.menu}>
+          {Object.entries(SideBarConfig).map(([key, arr]) => {
+            return arr && arr.subItems.length > 0 ? (
+              <>
+                <li key={key}>
+                  {arr.component}
+                  <main className={Style["main-menu"]}>
+                    <span>
+                      {key}
+                      <FiChevronRight />
+                    </span>
+                    <ul className={Style["drop-menu"]}></ul>
+                  </main>{" "}
+                </li>
+                <div className={Style.child}>
+                {arr.subItems.map((data) => (
+                  <li>{data}</li>
+                ))}
+              </div>
+              </>
+            ) : (
+              <li>
+                {arr.component}
+                <span>{key}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </div>
+  );
+}
+export default SideBar;
+</file>
+
+<file path="src/components/layout/SideBar/SideBar.module.css">
+.side-bar * {
+    font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+.side-bar {
+    display: flex;
+    font-weight: 600;
+    font-size: 18px;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    background-color: rgba(0, 0, 0,0.5);
+    height: 100vh;
+    width: 100%; /* Thêm chiều rộng cố định để sidebar không bị co rúm */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+}
+.nav-bar >div {
+        margin:10px 0;
+}
+.nav-bar{
+
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    width: 240px; /* Thêm chiều rộng cố định để sidebar không bị co rúm */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+}
+.side-bar >ul>li:hover {
+    border-left:2px solid white  !important;
+}
+/* XÓA DẤU CHẤM TRÒN VÀ PADDING CỦA THẺ UL */
+
+/* SỬA SELECTOR Ở ĐÂY: Chỉ áp dụng cho thẻ div và li NẰM TRONG .side-bar */
+.nav-bar > div{
+    color: lab(65.6464% 1.53497 -5.42429);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+.nav-bar > div>img{
+padding: 10px 20px;
+color: lab(65.6464% 1.53497 -5.42429);
+} 
+.nav-bar > div>svg{
+height: 30px;
+width: 30px;
+color: lab(65.6464% 1.53497 -5.42429);
+margin-right:20px;
+} 
+.nav-bar>ul> li {
+    color: lab(65.6464% 1.53497 -5.42429);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0,0.15);
+    /* justify-content: flex-start; Thay space-between bằng flex-start để chữ và icon dính sát nhau */
+    justify-content: flex-start; 
+    gap: 12px; /* Tạo khoảng cách vừa phải giữa icon và chữ */
+    padding: 12px 20px; /* Thêm khoảng đệm cho các dòng menu dễ bấm */
+    cursor: pointer;
+    border-left:5px solid rgb(0, 0, 0) ;
+    margin:2px 0;
+}
+
+.nav-bar>ul>.child> li{  
+    color: lab(65.6464% 1.53497 -5.42429);  display: flex;
+    align-items: center;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0,0.15);
+    /* justify-content: flex-start; Thay space-between bằng flex-start để chữ và icon dính sát nhau */
+    justify-content: flex-start; 
+    gap: 12px; /* Tạo khoảng cách vừa phải giữa icon và chữ */
+    padding: 12px 20px; /* Thêm khoảng đệm cho các dòng menu dễ bấm */
+    cursor: pointer;
+    margin: 2px;}
+    .nav-bar>ul>.child> li:hover{
+        border-left:2px solid white ;
+    }
+.nav-bar * {
+    transition: all 0.3s ease-in-out;
+}
+.nav-bar> ul> .child>:hover {
+    
+    color: lab(65.6464% 1.53497 -5.42429);
+    
+}
+.nav-bar span {
+    color: lab(65.6464% 1.53497 -5.42429);
+    text-align: left;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.drop-menu {
+    color: lab(65.6464% 1.53497 -5.42429);
+    display: flex;
+    flex-direction: column;
+}
+.child{
+margin-left:30px ;
+}
+.child >li {
+border: none;
+box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0) !important;
+}
+.nav-bar> ul>li:hover{
+    border-left:2px solid white ;
+}
+.child {
+    display: none;
+}
+</file>
+
+<file path="src/components/layout/SideBar/SideBarConfig.jsx">
+import React from 'react';
+import Button from '../../common/Button/Button'; 
+import { FiAlertOctagon } from "react-icons/fi";
+const headerConfig = {
+  "Trang Chủ": {
+    component: <FiAlertOctagon />, // Chèn component hiển thị TRƯỚC chữ
+    subItems: ["Home 1", "Home 2"]
+  },
+  "Sản Phẩm": {
+    component: <FiAlertOctagon />, // Menu nào không cần chèn component thì để null
+    subItems: []
+  },
+  "Nạp Tiền": {
+    component: <FiAlertOctagon />,
+    subItems: []
+  },
+  "Community": {
+    component: <FiAlertOctagon />,
+    subItems: []
+  },
+  "Docs": {
+    component: <FiAlertOctagon />,
+    subItems: []
+  },
+  "Login": {
+    component: <FiAlertOctagon />,
+    subItems: []
+  }
+};
+
+export default headerConfig;
+</file>
+
+<file path="src/config/config.js">
+import logo from '../assets/react.svg'
+export default {
+    TITLE: "Word HEllo",
+    LOGO : logo,
+};
+</file>
+
+<file path="src/demo.txt">
+hello
+</file>
+
+<file path="src/main.jsx">
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import "@fontsource/inter";
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App/>
+  </StrictMode>
+)
+</file>
+
+<file path="src/App.css">
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.hero {
+  position: relative;
+
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .framework,
+  .vite {
+    position: absolute;
+  }
+
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 24px 16px 20px;
+    gap: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px 12px 16px;
+    gap: 12px;
+  }
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 20px 16px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 16px 12px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+
+    @media (max-width: 480px) {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 12px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#docs {
+  border-right: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  @media (max-width: 768px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 16px;
+    gap: 6px;
+
+    li {
+      flex: 1 1 calc(50% - 6px);
+    }
+
+    a {
+      font-size: 14px;
+      padding: 5px 10px;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 12px;
+    gap: 4px;
+    flex-wrap: wrap;
+
+    li {
+      flex: 1 1 100%;
+    }
+
+    a {
+      font-size: 12px;
+      padding: 4px 8px;
+      width: 100%;
+    }
+  }
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+
+  @media (max-width: 768px) {
+    height: 32px;
+  }
+
+  @media (max-width: 480px) {
+    height: 24px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+
+/* Responsive Design - Mobile First */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1em;
+  }
+}
+</file>
+
+<file path="src/index.css">
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* Light theme colors */
+  --color-text-primary: #1F2936;
+  --color-text-placeholder: #798EAE;
+  --color-bg-primary: #f9fafb;
+  --color-bg-secondary: #ECECFD;
+  --color-bg-sidebar: #FFFFFF;
+  --color-border-hr: #E2E8F0;
+  --color-hover-primary: #695CFE;
+  --color-hover-secondary: #e2e2fb;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+  
+  /* Responsive font sizes */
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-xs: 12px;
+  --spacing-unit: 8px;
+}
+
+body {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.dark-theme {
+  /* Dark theme colors */
+  --color-text-primary: #F1F5F9;
+  --color-text-placeholder: #A6B7D2;
+  --color-bg-primary: #111827;
+  --color-bg-secondary: #3D4859;
+  --color-bg-sidebar: #1f2937;
+  --color-border-hr: #3B475C;
+  --color-hover-secondary: #48566a;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Mobile-first responsive typography */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 15px;
+    --font-size-sm: 13px;
+    --font-size-xs: 11px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-base: 14px;
+    --font-size-sm: 12px;
+    --font-size-xs: 10px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.3em;
+  }
+
+  h2 {
+    font-size: 1.1em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Fix overflow on mobile */
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+</file>
+
+</files>
