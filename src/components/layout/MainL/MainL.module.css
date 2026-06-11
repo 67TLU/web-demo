@@ -3,8 +3,10 @@
     flex-direction: column;
     justify-content: center;
     background-color: transparent;
-    width: 95%;
+    width: 100%;
     margin: auto;
+    transition: all 0.3s ease;
+    flex: 1;
 }
 .main {
     max-width: 1272px;
@@ -12,6 +14,8 @@
     justify-content: center;
     flex-direction: column;
     margin: auto;
+    width: 100%;
+    padding: 0 20px;
 }
 
 .pdr-card {
@@ -19,13 +23,27 @@
     grid-template-columns: repeat(4,1fr);
     gap:20px
 }
+
 @media (max-width: 1000px) {
   .pdr-card {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 @media (max-width: 700px) {
   .pdr-card {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive adjustment for mobile when sidebar is visible */
+@media (max-width: 768px) {
+  .mainL {
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  .main {
+    padding: 0 10px;
   }
 }
