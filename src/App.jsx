@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Header from './components/layout/Header/Header'; // Đường dẫn tới file Header của bạn
 import SideBar from './components/layout/SideBar/SideBar'; // Cập nhật đường dẫn thực tế
 import MainL from '../src/components/layout/MainL/MainL'
+import './App.module.css';
+
 function App() {
   // 1. Khởi tạo State quản lý đóng/mở sidebar
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -21,11 +23,13 @@ function App() {
       {/* Truyền hàm toggle vào Header qua prop onTaskButtonClick */}
       <Header onTaskButtonClick={toggleSidebar} />
 
-      {/* Chỉ render SideBar khi state isSidebarOpen là true */}
-      {isSidebarOpen && (
-        <SideBar isOpen={isSidebarOpen} onClose={closeSidebar} setIsSidebarOpen={setIsSidebarOpen}/>
-      )}
-      <MainL></MainL>
+      <div className="main-wrapper">
+        {/* Chỉ render SideBar khi state isSidebarOpen là true */}
+        {isSidebarOpen && (
+          <SideBar isOpen={isSidebarOpen} onClose={closeSidebar} setIsSidebarOpen={setIsSidebarOpen}/>
+        )}
+        <MainL></MainL>
+      </div>
     </div>
   );
 }
