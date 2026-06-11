@@ -7,7 +7,7 @@
     width: 100%;
     height: 70px;
     /* Sử dụng màu nền giống Sidebar thay vì trong suốt */
-    background-color: var(--color-bg-sidebar); 
+   background-color: var(--color-bg-primary); /* Màu trắng rất mỏng */
     border-bottom: 1px solid var(--color-border-hr);
     box-shadow: 0 2px 10px var(--color-shadow);
     justify-content: space-between;
@@ -15,8 +15,10 @@
     padding: 0 20px;
     z-index: 1000;
     transition: all 0.3s ease;
+    backdrop-filter: blur(2023px);
+    border: none;
+    outline: none;
 }
-
 /* --- LOGO --- */
 .logo-img {
     height: 40px;
@@ -59,7 +61,7 @@
     align-items: center;
     gap: 6px;
     transition: all 0.2s ease;
-    display: inline-flex;       /* Sử dụng flex để chữ và icon mũi tên thẳng hàng */
+    display: flex;       /* Sử dụng flex để chữ và icon mũi tên thẳng hàng */
     align-items: center;        /* Căn giữa chữ và icon theo chiều dọc */
     gap: 6px;                  /* Khoảng cách giữa chữ và icon mũi tên */
     white-space: nowrap;       /* KHÔNG CHO PHÉP CHỮ XUỐNG DÒNG */
@@ -154,7 +156,7 @@
 
 /* --- NÚT BẤM (LIGHT/TASK) --- */
 .light, .task {
-    background: none;
+    background: var(--color-bg-primary);
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -168,7 +170,7 @@
 
 .light:hover, .task:hover {
     background-color: var(--color-bg-secondary);
-    color: var(--color-hover-primary);
+    
 }
     .task {
         display: none;

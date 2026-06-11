@@ -1,0 +1,107 @@
+.card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #ececec;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+.imageWrapper {
+  position: relative;
+  padding: 14px;
+}
+
+.image {
+  width: 100%;
+  min-height: 80px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.badge {
+  position: absolute;
+  left: 22px;
+  bottom: 4px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 15px;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+.content {
+  padding: 8px 18px 20px;
+}
+
+.tag {
+  display: inline-block;
+  background: #eef4ff;
+  color: #2563eb;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.price {
+  color: #2563eb;
+  font-size: 22px;
+  font-weight: 800;
+}
+@media (max-width: 1000px) {
+.badge {
+    font-size: 15px;
+    padding: 2px 5px;
+}
+.title {
+    font-size: 18px;
+
+}
+.price {
+    font-size: 18px;
+}
+}
+@media (max-width: 700px) {
+.badge {
+    font-size: 15px;
+    padding: 2px 5px;
+}
+.title {
+    font-size: 18px;
+
+}
+.price {
+    font-size: 18px;
+}
+}

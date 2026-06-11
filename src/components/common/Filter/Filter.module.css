@@ -1,0 +1,101 @@
+.filterContainer {
+  width: 320px;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #1f2937;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.resetBtn {
+  background: transparent;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+}
+
+.group {
+  margin-bottom: 20px;
+}
+
+.group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  box-sizing: border-box;
+}
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.priceGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.submitBtn {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.submitBtn:hover {
+  background: #1d4ed8;
+}
+.button-filter{
+    display: flex;
+    justify-content: space-evenly;
+}
+.button-close{
+    padding: 5px;
+    border-radius: 10%;
+    height: 30px;
+    width: 30px;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+}
+.button-close >svg {
+    height: 20px;
+    width: 20px;
+    font-size: 19px;
+}
+.iconFilter {
+    color: var(--color-text-primary);
+}

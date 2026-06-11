@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/layout/Header/Header'; // Đường dẫn tới file Header của bạn
 import SideBar from './components/layout/SideBar/SideBar'; // Cập nhật đường dẫn thực tế
-
+import MainL from '../src/components/layout/MainL/MainL'
 function App() {
   // 1. Khởi tạo State quản lý đóng/mở sidebar
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -23,12 +23,9 @@ function App() {
 
       {/* Chỉ render SideBar khi state isSidebarOpen là true */}
       {isSidebarOpen && (
-        <SideBar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        <SideBar isOpen={isSidebarOpen} onClose={closeSidebar} setIsSidebarOpen={setIsSidebarOpen}/>
       )}
-
-      <main style={{ padding: '20px' }}>
-         {/* Nội dung chính của website */}
-      </main>
+      <MainL></MainL>
     </div>
   );
 }

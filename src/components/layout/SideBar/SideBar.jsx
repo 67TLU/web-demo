@@ -3,20 +3,21 @@ import { menuConfig } from './SideBarConfig';
 import styles from './SideBar.module.css';
 import logoImg from '../../../assets/hero.png'; // Đường dẫn ảnh logo của bạn
 
-const SideBar = () => {
+import ClickOutsideExample from '../../../hooks/Close'
+const SideBar = ({setIsSidebarOpen}) => {
   const [isCollapsed, setIsCollapsed] = useState(window.innerWidth <= 768);
   const [isDarkTheme, setIsDarkTheme] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
     return savedTheme === 'dark';
   });
-  
+
   // State lưu các menu cha đang được mở submenu (Ví dụ: { products: true, settings: false })
   const [openMenus, setOpenMenus] = useState({});
   // State lưu item đang active (có thể là menu cha hoặc menu con)
   const [activeMenu, setActiveMenu] = useState('dashboard');
-  
+  const sideRef=useRef();
   const searchInputRef = useRef(null);
-
+  ClickOutsideExample(setIsSidebarOpen,sideRef);
   useEffect(() => {
     if (isDarkTheme) {
       document.body.classList.add('dark-theme');
@@ -68,7 +69,7 @@ const SideBar = () => {
         <div className={styles['sidebar-overlay']} onClick={toggleSidebar} />
       )}
 
-      <aside className={`${styles.sidebar} ${isCollapsed ? styles.collapsed : ''}`}>
+      <aside ref={sideRef} className={`${styles.sidebar} ${isCollapsed ? styles.collapsed : ''}`}>
         <div className={styles['sidebar-header']}>
           <img src={logoImg} alt="Logo" className={styles['header-logo']} />
           <button className={styles['sidebar-toggle']} onClick={toggleSidebar}>

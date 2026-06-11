@@ -1,0 +1,31 @@
+.mainL {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+    width: 95%;
+    margin: auto;
+}
+.main {
+    max-width: 1272px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+.pdr-card {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:20px
+}
+@media (max-width: 1000px) {
+  .pdr-card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .pdr-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

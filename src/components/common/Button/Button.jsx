@@ -1,13 +1,14 @@
 import { Children } from 'react';
 import Style from './Button.module.css';
 import Loading from '../Loading/Loading';
-function Button({disabled,children,isLoading})
+function Button({style,disabled,children,isLoading})
 {
 return (
 <button 
   className={Style.button} 
   disabled={disabled || isLoading} 
   style={{ position: 'relative' }}
+  style={style}
 >
   {isLoading && (
     <Loading 
@@ -21,9 +22,9 @@ return (
   )}
 
   {isLoading ? (
-    <div style={{ opacity: 0 }}>{children}</div>
+    <>{children}</>
   ) : (
-    <div>{children}</div>
+    <>{children}</>
   )}
 </button>
 

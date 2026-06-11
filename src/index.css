@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
+@import "tailwindcss";
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ ul {
   /* Light theme colors */
   --color-text-primary: #1F2936;
   --color-text-placeholder: #798EAE;
-  --color-bg-primary: #f9fafb;
+  --color-bg-primary: hsl(0, 0%, 100%);
   --color-bg-secondary: #ECECFD;
   --color-bg-sidebar: #FFFFFF;
   --color-border-hr: #E2E8F0;
@@ -26,8 +26,8 @@ body.dark-theme {
   /* Dark theme colors */
   --color-text-primary: #F1F5F9;
   --color-text-placeholder: #A6B7D2;
-  --color-bg-primary: #111827;
-  --color-bg-secondary: #3D4859;
+  --color-bg-primary:  rgb(53, 53, 53);
+  --color-bg-secondary: #2a2a2a;
   --color-bg-sidebar: #1f2937;
   --color-border-hr: #3B475C;
   --color-hover-secondary: #48566a;
@@ -48,3 +48,4 @@ body.dark-theme [class*="theme-toggle-track"] {
 body.dark-theme [class*="theme-toggle-indicator"] {
   transform: translateX(24px);
 }
+h1 {font-size:2em}

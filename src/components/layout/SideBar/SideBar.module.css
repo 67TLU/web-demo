@@ -10,7 +10,7 @@
   border-right: 1px solid var(--color-border-hr);
   box-shadow: 0 3px 9px var(--color-shadow);
   transition: width 0.4s ease;
-  z-index: 20;
+  z-index: 1001;
 }
 
 .sidebar.collapsed {
