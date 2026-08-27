@@ -4,12 +4,15 @@ import Footer from "../Footer/Footer"
 import ProductCard from "../../common/ProductCard/ProductCard"
 import  Pagination from "../../common/Pagination/Pagination"
 import SortFilter from '../../common/SortFilter/SortFilter'
+
 function MainL(){
     return <div className={Style.mainL}>
                 <Home/>
 <div className={Style["main"]}>                <SortFilter></SortFilter>
                 <div className={Style["pdr-card"]}>
-                    {Array(10).fill(0).map(data=><ProductCard></ProductCard>)}
+                    {Array(10).fill(0).map((_, index) => (
+                      <ProductCard key={`product-${index}`} />
+                    ))}
                 </div></div>
                 <Pagination></Pagination>
                 <Footer></Footer>

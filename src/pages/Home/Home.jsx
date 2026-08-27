@@ -4,71 +4,67 @@ import styles from "./Home.module.css"; // Import lớp CSS Module
 import Button from  '../../components/common/Button/Button'
 import { TbBackground } from "react-icons/tb";
 import { FaCheckCircle } from "react-icons/fa";
-const service = [{
-    icon:<Cpu></Cpu>,
-    title:"Hạ tầng Cloud"
-},{
-    icon:<Cpu></Cpu>,
-    title:"Website và mã nguồn"
-},
-{
-    icon:<Cpu></Cpu>,
-    title:"Tool"
-}
+
+const service = [
+  {
+    id: "infrastructure",
+    icon: <Cpu />,
+    title: "Hạ tầng Cloud"
+  },
+  {
+    id: "website",
+    icon: <Cpu />,
+    title: "Website và mã nguồn"
+  },
+  {
+    id: "tools",
+    icon: <Cpu />,
+    title: "Tool"
+  }
 ];
-const card=[{
-    icon:"Free"
-,
-    title:<ul>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-    </ul>
-},{
-    icon:"Free"
-,
-    title:<ul>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-    </ul>
-},
-{
-    icon:"Free"
-,
-    title:<ul>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-      <li><FaCheckCircle />
-<span>10 lượt truy cập</span></li>
-    </ul>
-}]
+
+const card = [
+  {
+    id: "free-plan",
+    icon: "Free",
+    title: "Free Plan",
+    features: [
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập"
+    ]
+  },
+  {
+    id: "pro-plan",
+    icon: "Pro",
+    title: "Pro Plan",
+    features: [
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập"
+    ]
+  },
+  {
+    id: "enterprise-plan",
+    icon: "Enterprise",
+    title: "Enterprise Plan",
+    features: [
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập",
+      "10 lượt truy cập"
+    ]
+  }
+];
+
 const features = [
   {
     icon: Cpu,
@@ -128,7 +124,7 @@ export default function Home() {
                   <span>Khám phá ngay</span>
                   <ArrowRight style={{ height: "1rem", width: "1rem" }} />
                 </Button>
-                                  <Button style={{backgroundColor:"var(--color-text-primary)",color:"var(--color-bg-primary)"}} className={styles.btnHeroPrimary} >
+                <Button style={{backgroundColor:"var(--color-text-primary)",color:"var(--color-bg-primary)"}} className={styles.btnHeroPrimary} >
                     <span>Tư Vấn và Hỗ Trợ</span>
                     <ArrowRight style={{ height: "1rem", width: "1rem" }} />
                   </Button>
@@ -183,20 +179,29 @@ export default function Home() {
           {/* Section Các Thẻ Tính Năng Đáy */}
 
           <section id="features" className={styles.bottomFeaturesSection}>
-          <h1>Hệ Sinh Thái Dịch Vụ</h1>
-            {service.map(({icon,title}) => (
-              <div key={title} className={styles.bottomFeatureCard}>
+            <h1>Hệ Sinh Thái Dịch Vụ</h1>
+            {service.map(({id, icon, title}) => (
+              <div key={id} className={styles.bottomFeatureCard}>
                 <h3 className={styles.bottomFeatureTitle}>{icon}</h3>
                 <p className={styles.bottomFeatureDesc}>{title}</p>
               </div>
             ))}
           </section>
-                    <section id="features" className={styles.bottomFeaturesSection}>
-          <h1>Giá Cả và Gói Đăng kí</h1>
-            {card.map(({icon,title}) => (
-              <div key={title} className={styles.bottomFeatureCard}>
+
+          <section id="pricing" className={styles.bottomFeaturesSection}>
+            <h1>Giá Cả và Gói Đăng kí</h1>
+            {card.map(({id, icon, title, features: planFeatures}) => (
+              <div key={id} className={styles.bottomFeatureCard}>
                 <h3 className={styles.bottomFeatureTitle}>{icon}</h3>
                 <p className={styles.bottomFeatureDesc}>{title}</p>
+                <ul className={styles.featuresList}>
+                  {planFeatures.map((feature, idx) => (
+                    <li key={`${id}-feature-${idx}`}>
+                      <FaCheckCircle />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </section>
